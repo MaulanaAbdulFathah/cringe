@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Daftar Nama</title>
+    <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Login Admin</h1>
+        <input type="password" id="adminPassword" placeholder="Masukkan kata sandi">
+        <button id="loginBtn">Login</button>
+        <div id="namesContainer" style="display: none;">
+            <h1>list death note</h1>
+            <ul id="namesList"></ul>
+            <button id="resetBtn">KILL NOW</button> <!-- Tombol untuk reset -->
+        </div>
+    </div>
+    <style>
+body{
+    background-color: black;
+}
+
+        h1{
+            color: white;
+        }
+
+        ul{
+            font-size: 30px;
+            color: red
+        }
+      
+        button  {
+            
+            color: red;
+            background-color: rgb(0, 0, 0);
+        }
+
+    </style>
+
+    <script>
+        const correctPassword = "211"; // Ganti dengan kata sandi yang Anda inginkan
+        document.getElementById('loginBtn').addEventListener('click', () => {
+    const password = document.getElementById('adminPassword').value;
+    if (password === correctPassword) {
+        document.getElementById('namesContainer').style.display = 'block';
+        fetchAndDisplayNames(); // Memanggil fungsi untuk mengambil dan menampilkan nama
+    } else {
+        alert('Kata sandi salah!');
+    }
+});
+
+// Fungsi untuk mengambil dan menampilkan nama-nama
+function fetchAndDisplayNames() {
+    fetch('http://localhost:3000/get-names')
+        .then(response => {
+            console.log('Response status:', response.status); // Log status respons
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
+        .then(names => {
+            console.log('Fetched names:', names); // Log nama yang diambil
+            const namesList = document.getElementById('namesList');
+            namesList.innerHTML = ''; // Kosongkan daftar sebelumnya
+            names.forEach(name => {
+                const listItem = document.createElement('li');
+                listItem.textContent = name;
+                namesList.appendChild(listItem);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching names:', error);
+        });
+}
+
+// Event listener untuk tombol login
+document.getElementById('loginBtn').addEventListener('click', () => {
+    const password = document.getElementById('adminPassword').value;
+    if (password === correctPassword) {
+        document.getElementById('namesContainer').style.display = 'block';
+        fetchAndDisplayNames(); // Memanggil fungsi untuk mengambil dan menampilkan nama
+    } else {
+        alert('Kata sandi salah!');
+    }
+});
+        // Event listener untuk tombol reset
+// Event listener untuk tombol reset
+document.getElementById('resetBtn').addEventListener('click', () => {
+    if (confirm("Apakah Anda yakin ingin menghapus semua nama?")) { // Konfirmasi sebelum menghapus
+        fetch('http://localhost:3000/reset-names', {
+            method: 'DELETE'
+        })
+        .then(response => {
+            console.log('Response status:', response.status); // Log status respons
+            return response.json();
+        })
+        .then(data => {
+            alert(data.message); // Tampilkan pesan setelah reset
+            fetchAndDisplayNames(); // Ambil dan tampilkan nama setelah reset
+        })
+        .catch(error => {
+            console.error('Error resetting names:', error);
+        });
+    }
+});
+    </script>
+</body>
+</html>
