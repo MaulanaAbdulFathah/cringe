@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEHEHEHHE</title>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+        .wrapper {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .video {
+            width: 100%;
+            max-width: 600px; /* Mengatur lebar maksimum video */
+            height: auto; /* Mengatur tinggi video secara otomatis */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="wrapper" id="opening-scene">
+        <h1></h1>
+        <input type="text" id="userName" placeholder="your name pls">
+        <button id="submitBtn">enter</button>
+    </div>
+    
+
+    <div class="wrapper" id="scene1" style="display: none;">
+        <h2 class="question">Do you love me?</h2>
+        <img class="gif" alt="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXVpM25oaDBjZmw0a29neWtyMzBhajYyaWV2ZGx3MDFxMTZ5c2F6MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3MkhtxEKImJL3HbRzE/giphy.gif" />
+        <div class="btn-group">
+            <button class="no-btn">BANGET</button>
+            <button class="yes-btn">gakkk!!</button>
+        </div>
+    </div>
+
+<div class="wrapper" id="scene2" style="display: none;">
+    <h2 class="question">🫵🫵🫵🫵</h2>
+    <img src="ig.gif" alt="Deskripsi GIF" class="gif" /> <!-- Ganti dengan path GIF -->
+    <h3>canda ges ✌️</h3>
+</div>
+
+    <!-- Elemen audio untuk scene pembukaan -->
+    <audio id="opening-audio" autoplay loop>
+        <source src="p3" type="audio/mpeg"> <!-- Ganti dengan path audio pembukaan -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Elemen audio untuk scene 1 -->
+    <audio id="background-audio" loop>
+        <source src="scene1.mp3" type="audio/mpeg"> <!-- Ganti dengan path audio scene 1 -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Elemen audio untuk scene 2 -->
+    <audio id="scene2-audio" loop>
+        <source src="audio.mp3" type="audio/mpeg"> <!-- Ganti dengan path audio scene 2 -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
