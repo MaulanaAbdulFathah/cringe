@@ -74,15 +74,27 @@ yesBtn.addEventListener("click", () => {
 
 // Mengubah teks dan video ketika tombol No diklik
 noBtn.addEventListener("click", () => {
-    console.log("Tombol TIDAK diklik"); // Log untuk debugging
+    console.log("Tombol BANGET diklik"); // Log untuk debugging
 
     // Hentikan audio untuk scene 1
     backgroundAudio.pause();
     backgroundAudio.currentTime = 0;
 
-    // Sembunyikan scene 1 dan tampilkan pesan akhir atau scene lain
+    // Sembunyikan scene 1
     scene1.style.display = "none";
-    // Tampilkan pesan atau scene lain sesuai kebutuhan
+
+    // Tampilkan scene 2
+    scene2.style.display = "block";
+
+    // Memutar video
+    igVideo.play().catch(error => {
+        console.log("Pemutaran video gagal: ", error);
+    });
+
+    // Memutar audio untuk scene 2
+    scene2Audio.play().catch(error => {
+        console.log("Pemutaran audio scene 2 gagal: ", error);
+    });
 });
 
 // Fungsi untuk mengambil dan menampilkan nama-nama
