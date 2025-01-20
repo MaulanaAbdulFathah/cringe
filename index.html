@@ -16,11 +16,10 @@
             height: auto; /* Mengatur tinggi video secara otomatis */
         }
         .gif .scene2 {
-            display: none; /* Sembunyikan GIF pada awalnya */
-            max-width: 100%; /* Mengatur lebar maksimum GIF */
-            height: auto; /* Mengatur tinggi GIF secara otomatis */
+            display: none; /* Sembunyikan video pada awalnya */
+            max-width: 100%; /* Mengatur lebar maksimum video */
+            height: auto; /* Mengatur tinggi video secara otomatis */
         }
-
     </style>
 </head>
 <body>
@@ -31,7 +30,6 @@
         <button id="submitBtn">enter</button>
     </div>
     
-
     <div class="wrapper" id="scene1" style="display: none;">
         <h2 class="question">Do you love me?</h2>
         <img class="gif" alt="gif" src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXVpM25oaDBjZmw0a29neWtyMzBhajYyaWV2ZGx3MDFxMTZ5c2F6MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3MkhtxEKImJL3HbRzE/giphy.gif" />
@@ -41,11 +39,14 @@
         </div>
     </div>
 
-<div class="wrapper" id="scene2" style="display: none;">
-    <h2 class="question">🫵🫵🫵🫵</h2>
-    <img src="ig.gif" alt="Deskripsi GIF" class="gif" id="igGif"/> <!-- Ganti dengan path GIF -->
-    <h3>canda ges ✌️</h3>
-</div>
+    <div class="wrapper" id="scene2" style="display: none;">
+        <h2 class="question">🫵🫵🫵🫵</h2>
+        <video class="video" id="igVideo" controls loop>
+            <source src="0120.mp4" type="video/mp4"> <!-- Ganti dengan path video -->
+            Your browser does not support the video tag.
+        </video>
+        <h3>canda ges ✌️</h3>
+    </div>
 
     <!-- Elemen audio untuk scene pembukaan -->
     <audio id="opening-audio" autoplay loop>
@@ -60,7 +61,7 @@
     </audio>
 
     <!-- Elemen audio untuk scene 2 -->
-    <audio id="scene2-audio" loop>
+    <audio id="scene-audio" loop>
         <source src="audio.mp3" type="audio/mpeg"> <!-- Ganti dengan path audio scene 2 -->
         Your browser does not support the audio element.
     </audio>
