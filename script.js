@@ -6,7 +6,7 @@ const scene2 = document.getElementById("scene2");
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-const video = document.querySelector(".video");
+const igGif = document.getElementById("igGif"); // Ambil elemen gambar untuk ig.gif
 const scene2Audio = document.getElementById("scene2-audio");
 const backgroundAudio = document.getElementById("background-audio");
 
@@ -38,7 +38,7 @@ startBtn.addEventListener("click", () => {
         openingScene.style.display = "none";
         
         // Tampilkan scene 1
-        scene1.style.display = "block";
+        scene1.style.display = "block"; // Pastikan scene1 ditampilkan
         
         // Memutar audio untuk scene 1
         backgroundAudio.play().catch(error => {
@@ -51,22 +51,19 @@ startBtn.addEventListener("click", () => {
 
 // Mengubah teks dan video ketika tombol Yes diklik
 yesBtn.addEventListener("click", () => {
-    console.log("Tombol BANGET diklik"); // Log untuk debugging
+    console.log("Tombol gakk!! diklik"); // Log untuk debugging
 
     // Hentikan audio untuk scene 1
     backgroundAudio.pause();
     backgroundAudio.currentTime = 0;
 
-    // Hentikan video yang sedang diputar (jika ada)
-    if (video) {
-        console.log("Menghentikan video"); // Log untuk debugging
-        video.pause();
-        video.currentTime = 0;
-    }
-
     // Sembunyikan scene 1 dan tampilkan scene 2
     scene1.style.display = "none";
     scene2.style.display = "block";
+
+    // Set src untuk GIF dan tampilkan
+    igGif.src = "ig.gif"; // Set src ke GIF yang diinginkan
+    igGif.style.display = "block"; // Tampilkan gambar
 
     // Memutar audio untuk scene 2
     scene2Audio.play().catch(error => {
@@ -86,6 +83,8 @@ noBtn.addEventListener("click", () => {
     scene1.style.display = "none";
     // Tampilkan pesan atau scene lain sesuai kebutuhan
 });
+
+
 
 // Fungsi untuk mengambil dan menampilkan nama-nama
 function fetchAndDisplayNames() {
@@ -108,7 +107,6 @@ function fetchAndDisplayNames() {
 // Panggil fungsi untuk mengambil dan menampilkan nama-nama saat halaman dimuat
 window.onload = fetchAndDisplayNames;
 
-// Membuat tombol No bergerak secara acak saat hover
 // Membuat tombol No bergerak secara acak saat hover
 noBtn.addEventListener("mouseover", () => {
     const viewportWidth = window.innerWidth;
