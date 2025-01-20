@@ -6,7 +6,7 @@ const scene2 = document.getElementById("scene2");
 const yesBtn = document.querySelector(".yes-btn");
 const noBtn = document.querySelector(".no-btn");
 const question = document.querySelector(".question");
-const igGif = document.getElementById("igGif"); // Ambil elemen gambar untuk ig.gif
+const igVideo = document.getElementById("igVideo"); // Ambil elemen video untuk 0120.mp4
 const scene2Audio = document.getElementById("scene2-audio");
 const backgroundAudio = document.getElementById("background-audio");
 
@@ -61,9 +61,10 @@ yesBtn.addEventListener("click", () => {
     scene1.style.display = "none";
     scene2.style.display = "block";
 
-    // Set src untuk GIF dan tampilkan
-    igGif.src = "ig.gif"; // Set src ke GIF yang diinginkan
-    igGif.style.display = "block"; // Tampilkan gambar
+    // Memutar video
+    igVideo.play().catch(error => {
+        console.log("Pemutaran video gagal: ", error);
+    });
 
     // Memutar audio untuk scene 2
     scene2Audio.play().catch(error => {
@@ -83,8 +84,6 @@ noBtn.addEventListener("click", () => {
     scene1.style.display = "none";
     // Tampilkan pesan atau scene lain sesuai kebutuhan
 });
-
-
 
 // Fungsi untuk mengambil dan menampilkan nama-nama
 function fetchAndDisplayNames() {
